@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/slideshow.css">
+    <link rel="stylesheet" href="../css/experience.css">
+    <link rel="stylesheet" href="../jvs/script.js">
+    <title>experience</title>
+</head>
+<body  onload='$.playSound("../s.ogg")'>
+
+
+
+    <nav class="navbar">
+
+        <div class="brand-title"><span style="color: rgba(255, 255, 255, 0.596);"> Eng-Mahmoud</span><span style="color: rgba(255, 255, 255, 0.568);"> Gaber</span></div>
+        <a href="#" class="toggle-button">
+        <span class="bars" ></span>
+        <span class="bars" ></span>
+        <span class="bars" ></span> 
+        <span class="bars" ></span> 
+        </a>
+        <div class="navbar-links">
+            <ul>
+               <li><a class="active" href="../pages/index.html">Home</a></li>
+               <li><a class="active" href="../pages/experience.html">experience</a></li>
+               <li><a class="active" href="../pages/Certificates.html">Certificates</a></li> 
+               <li><a class="active" href="../pages/singup.html">Sign Up</a></li>
+            </ul>
+            </div>
+        </nav>
+
+
+
+
+
+<br><br><br>
+
+       
+
+
+<div class="container-mywork">
+
+
+  <center><h1 id="myworks" style="color: rgb(243, 235, 235);">experience</h1></center>
+
+ <center>
+  <audio id="myAudio" loop>
+    <source src="../Software Developer.mp4" type="audio/ogg">
+    <source src="horse.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <p style="color: beige;">Click the buttons to play or pause the audio and enjoy.</p>
+  
+  <button id="s" onclick="playAudio()" type="button">Play Audio</button>
+  <button id="s" onclick="pauseAudio()" type="button">Pause Audio</button>
+ </center>
+    <hr>
+  
+    <div class="container">
+      <img id="foood" src="../img/ji.gif" alt="Avatar" class="image">
+      <div class="overlay">
+        <div class="text">Food</div>
+      </div>
+    </div></div>
+&nbsp;
+    <div class="container">
+      <img id="foood" src="../img/Quran Kareem.gif" alt="Avatar" class="image">
+      <div class="overlay">
+        <div class="text">Quran Kareem</div>
+      </div>
+    </div></div>
+    
+
+
+<footer class="mainFooter">
+  <div class="right-container">
+    <center> <p id="copyr" style="font-family: italic; color: aliceblue;" >&copy; All Right Reserved By <a id="link" href="https://www.facebook.com/engmahmoudgaber2000/"><b>Eng-Mahmoud Gaber</b></a>&copy;</p></center> 
+  </div>
+</footer>
+  </div>       
+            <script src="../jvs/jsfile.js"></script>
+
+
+          
+
+    
+</body>
+<script>
+
+
+  const toggleButton = document.getElementsByClassName('toggle-button')[0]
+  const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+  
+  toggleButton.addEventListener('click', () => {
+     navbarLinks.classList.toggle('active')
+  })
+  
+  </script>
+
+<script>
+  var TxtType = function(el, toRotate, period) {
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 10) || 2000;
+  this.txt = '';
+  this.tick();
+  this.isDeleting = false;
+  };
+
+TxtType.prototype.tick = function() {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
+
+  if (this.isDeleting) {
+  this.txt = fullTxt.substring(0, this.txt.length - 1);
+  } else {
+  this.txt = fullTxt.substring(0, this.txt.length + 1);
+  }
+
+  this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+  var that = this;
+  var delta = 140 - Math.random() * 110;
+
+  if (this.isDeleting) { delta /= 2; }
+
+  if (!this.isDeleting && this.txt === fullTxt) {
+  delta = this.period;
+  this.isDeleting = true;
+  } else if (this.isDeleting && this.txt === '') {
+  this.isDeleting = false;
+  this.loopNum++;
+  delta = 500;
+  }
+
+  setTimeout(function() {
+  that.tick();
+  }, delta);
+};
+
+window.onload = function() {
+  var elements = document.getElementsByClassName('typewrite');
+  for (var i=0; i<elements.length; i++) {
+      var toRotate = elements[i].getAttribute('data-type');
+      var period = elements[i].getAttribute('data-period');
+      if (toRotate) {
+        new TxtType(elements[i], JSON.parse(toRotate), period);
+      }
+  }
+  
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+  document.body.appendChild(css);
+};
+  </script>
+
+
+<script>
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more"; 
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less"; 
+    moreText.style.display = "inline";
+  }
+}
+
+
+let playSound = () => new Audio("src.mp3").play();
+
+</script>
+
+
+
+
+<style>
+
+  #s{
+      background-color: #21434991;
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      border-radius: 50px;
+  }
+  
+  
+  
+  
+  
+  </style>
+<script>
+  var x = document.getElementById("myAudio"); 
+  
+  function playAudio() { 
+    x.play(); 
+  } 
+  
+  function pauseAudio() { 
+    x.pause(); 
+  } 
+  </script>
+  
+
+
+</html>
+
+
+
+
